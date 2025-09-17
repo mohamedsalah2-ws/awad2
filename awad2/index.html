@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بورتفوليو | عوض بن حاسوم الدرمكي</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">عوض بن حاسوم الدرمكي</a>
+            <ul class="nav-menu">
+                <li><a href="#about">نبذة عني</a></li>
+                <li><a href="#services">الخبرات</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <header id="hero">
+            <div class="hero-content">
+                <h1>أقود بالتخطيط وأُلهم <span class="gradient-text">بالكلمة.</span></h1>
+                <p>خبير في القيادة التنفيذية والتنمية البشرية، كاتب وشاعر إماراتي أؤمن بأن الفكر هو أساس كل تطور.</p>
+               
+            </div>
+            <div class="hero-image">
+            </div>
+        </header>
+
+        <main>
+            <section id="about" class="reveal">
+                <h2>مسيرة تجمع بين الإدارة والفكر.</h2>
+                <p>
+                    أنا عوض بن حاسوم الدرمكي، رحلتي المهنية والشخصية هي نتاج شغفي الدائم بالجمع بين القيادة الإدارية وعمق الثقافة والأدب...
+                </p>
+            </section>
+
+            <section id="services">
+                <div class="service-item reveal">
+                    <div class="service-image"></div>
+                    <div class="service-text">
+                        <h3>القيادة والتخطيط الاستراتيجي</h3>
+                        <p>بخبرة عملية وأكاديمية، أقدم استشارات في القيادة التنظيمية والتخطيط الاستراتيجي للمؤسسات...</p>
+                    </div>
+                </div>
+
+                <div class="service-item reverse reveal">
+                    <div class="service-image"></div>
+                    <div class="service-text">
+                        <h3>التأليف والكتابة الإبداعية</h3>
+                        <p>أثرَيْتُ المكتبة العربية بالعديد من المؤلفات في مجالات متنوعة كالإدارة، وأدب الرحلات، والشعر والرواية...</p>
+                    </div>
+                </div>
+
+                <div class="service-item reveal">
+                    <div class="service-image"></div>
+                    <div class="service-text">
+                        <h3>المحاضرات والتنمية البشرية</h3>
+                        <p>أشارك بانتظام كمتحدث ومحاضر في الندوات والمؤتمرات، حيث أقدم خلاصة خبرتي في مواضيع القيادة والتاريخ...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cta" class="reveal">
+                <h2>هل تبحث عن رؤية استراتيجية أو كلمة ملهمة؟</h2>
+                <p>يسعدني المشاركة بخبراتي في مجالات القيادة والتطوير، أو إثراء فعالياتكم الثقافية...</p>
+               
+            </section>
+        </main>
+
+         <!-- الفوتر -->
+  <footer>
+    <p>© 2025 جميع الحقوق محفوظة لعوض بن حاسوم الدرمكي</p>
+    <div class="social-links">
+      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="LinkedIn"></a>
+      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
+    </div>
+  </footer>
+
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
