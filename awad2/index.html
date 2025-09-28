@@ -1,108 +1,668 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتفوليو | عوض بن حاسوم الدرمكي</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>عوض بن جاسوم الدرمكي - Awad Al Darmaki</title>
+    <style>
+        :root {
+            --primary-color: #c49b61;
+            --secondary-color: #8b6914;
+            --accent-color: #d4af37;
+            --text-dark: #2d1810;
+            --text-light: #5d4e37;
+            --bg-light: #faf8f5;
+            --bg-white: #ffffff;
+            --shadow: 0 10px 25px rgba(196, 155, 97, 0.15);
+            --shadow-hover: 0 20px 40px rgba(196, 155, 97, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 20px;
+            padding: 60px 50px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q40,10 60,20 T100,20" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/><path d="M10,40 Q30,30 50,40 T90,40" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/><path d="M30,70 Q50,60 70,70 T110,70" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/></svg>');
+            animation: float 25s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(0px) rotate(0deg); }
+            50% { transform: translateX(-30px) rotate(2deg); }
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .arabic-name {
+            font-size: 2.2rem;
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .profile-info .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .card-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        /* Works/Portfolio Items */
+        .work-item {
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 30px;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .work-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .work-year {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            font-style: italic;
+        }
+
+        .work-type {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .work-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .skill-category h4 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 10px 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 25px;
+            font-size: 1rem;
+        }
+
+        .skill-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Stats/Metrics */
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #f5f2ed 100%);
+            border-radius: 12px;
+            border: 1px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        /* Achievements/Awards */
+        .achievement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-content h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .achievement-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 40px 30px;
+            }
+            
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+            
+            .arabic-name {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .work-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        /* Quote styling */
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 155, 97, 0.1));
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="nav-logo">عوض بن حاسوم الدرمكي</a>
-            <ul class="nav-menu">
-                <li><a href="#about">نبذة عني</a></li>
-                <li><a href="#services">الخبرات</a></li>
-                
-            </ul>
-        </div>
-    </nav>
-
     <div class="container">
-        
-        <header id="hero">
-            <div class="hero-content">
-                <h1>أقود بالتخطيط وأُلهم <span class="gradient-text">بالكلمة.</span></h1>
-                <p>خبير في القيادة التنفيذية والتنمية البشرية، كاتب وشاعر إماراتي أؤمن بأن الفكر هو أساس كل تطور.</p>
-               
-            </div>
-            <div class="hero-image">
+        <!-- Header Section -->
+        <header class="header fade-in">
+            <div class="header-content">
+                <div class="profile-image">
+                    ✍️
+                </div>
+                <div class="profile-info">
+                    <div class="arabic-name">عوض بن جاسوم الدرمكي</div>
+                    <h1>Awad Al Darmaki</h1>
+                    <p class="subtitle">Poet • Writer • Speaker</p>
+                    <div class="contact-info">
+                        <div class="contact-item">🇦🇪 United Arab Emirates</div>
+                        <div class="contact-item">📝 Literary Works</div>
+                        <div class="contact-item">🎤 Public Speaking</div>
+                        <div class="contact-item">📚 Poetry Evenings</div>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <main>
-            <section id="about" class="reveal">
-                <h2>مسيرة تجمع بين الإدارة والفكر.</h2>
-                <p>
-                    أنا عوض بن حاسوم الدرمكي، رحلتي المهنية والشخصية هي نتاج شغفي الدائم بالجمع بين القيادة الإدارية وعمق الثقافة والأدب...
-                </p>
-            </section>
-
-            <section id="services">
-                <div class="service-item reveal">
-                    <div class="service-image"></div>
-                    <div class="service-text">
-                        <h3>القيادة والتخطيط الاستراتيجي</h3>
-                        <p>بخبرة عملية وأكاديمية، أقدم استشارات في القيادة التنظيمية والتخطيط الاستراتيجي للمؤسسات...</p>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- About Section -->
+                <section class="card fade-in stagger-1">
+                    <h2 class="card-title">About</h2>
+                    <p class="about-text">
+                        Awad Al Darmaki is a prominent Emirati poet and writer, celebrated for his profound contributions to contemporary Arabic literature. Known for his thought-provoking articles and inspiring lectures, he has touched countless hearts through his poetry evenings and literary works. His writing explores themes of heritage, identity, and human experience, bridging traditional Arabic literary forms with modern sensibilities.
+                    </p>
+                    <div class="quote">
+                        "Poetry is the voice of the soul, speaking truths that transcend time and place."
                     </div>
-                </div>
+                    <p class="about-text">
+                        Through his eloquent expression and deep understanding of human nature, Al Darmaki continues to influence and inspire readers across the Arab world and beyond. His work serves as a bridge between generations, preserving cultural heritage while addressing contemporary themes that resonate with modern audiences.
+                    </p>
+                </section>
 
-                <div class="service-item reverse reveal">
-                    <div class="service-image"></div>
-                    <div class="service-text">
-                        <h3>التأليف والكتابة الإبداعية</h3>
-                        <p>أثرَيْتُ المكتبة العربية بالعديد من المؤلفات في مجالات متنوعة كالإدارة، وأدب الرحلات، والشعر والرواية...</p>
+                <!-- Featured Works Section -->
+                <section class="card fade-in stagger-2">
+                    <h2 class="card-title">Featured Works</h2>
+                    
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">Basamat 1 — Why Read History?</div>
+                                <div class="work-type">Lecture Series</div>
+                            </div>
+                            <div class="work-year">Recent</div>
+                        </div>
+                        <p class="work-description">
+                            A compelling exploration of the importance of historical understanding in shaping our present and future. This lecture series delves into the lessons history offers and how they inform our cultural and personal identity.
+                        </p>
                     </div>
-                </div>
 
-                <div class="service-item reveal">
-                    <div class="service-image"></div>
-                    <div class="service-text">
-                        <h3>المحاضرات والتنمية البشرية</h3>
-                        <p>أشارك بانتظام كمتحدث ومحاضر في الندوات والمؤتمرات، حيث أقدم خلاصة خبرتي في مواضيع القيادة والتاريخ...</p>
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">The Last Refuge for Humanity</div>
+                                <div class="work-type">Literary Work</div>
+                            </div>
+                            <div class="work-year">2023</div>
+                        </div>
+                        <p class="work-description">
+                            A profound examination of human resilience and hope in challenging times. This work reflects on the enduring spirit of humanity and our capacity to find meaning and connection even in the darkest moments.
+                        </p>
                     </div>
-                </div>
-            </section>
 
-            <section id="cta" class="reveal">
-                <h2>هل تبحث عن رؤية استراتيجية أو كلمة ملهمة؟</h2>
-                <p>يسعدني المشاركة بخبراتي في مجالات القيادة والتطوير، أو إثراء فعالياتكم الثقافية...</p>
-               
-            </section>
-        </main>
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">البحث (Al-Bahth)</div>
+                                <div class="work-type">Poetry Collection</div>
+                            </div>
+                            <div class="work-year">2022</div>
+                        </div>
+                        <p class="work-description">
+                            A collection of contemplative poems exploring themes of search, discovery, and spiritual journey. Each piece invites readers to embark on their own quest for meaning and understanding.
+                        </p>
+                    </div>
 
-         <!-- الفوتر -->
-  <footer>
-    <p>© 2025 جميع الحقوق محفوظة لعوض بن حاسوم الدرمكي</p>
-    <div class="social-links">
-      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
-      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="LinkedIn"></a>
-      <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
-    </div>
-  </footer>
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">الاتصال (Al-Ittisal)</div>
+                                <div class="work-type">Essays & Articles</div>
+                            </div>
+                            <div class="work-year">2021</div>
+                        </div>
+                        <p class="work-description">
+                            A series of thoughtful essays on human connection, communication, and the bonds that unite us across cultural and temporal boundaries. These writings explore how we maintain meaningful relationships in an evolving world.
+                        </p>
+                    </div>
+                </section>
+            </div>
 
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Literary Focus Section -->
+                <section class="card fade-in stagger-3">
+                    <h2 class="card-title">Literary Focus</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Poetry & Verse</h4>
+                            <ul class="skill-list">
+                                <li>Classical Arabic Poetry</li>
+                                <li>Contemporary Free Verse</li>
+                                <li>Narrative Poetry</li>
+                                <li>Philosophical Poems</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Prose & Essays</h4>
+                            <ul class="skill-list">
+                                <li>Cultural Commentary</li>
+                                <li>Social Analysis</li>
+                                <li>Historical Reflection</li>
+                                <li>Personal Essays</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Public Engagement</h4>
+                            <ul class="skill-list">
+                                <li>Poetry Evenings</li>
+                                <li>Literary Lectures</li>
+                                <li>Cultural Forums</li>
+                                <li>Educational Seminars</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Impact & Reach -->
+                <section class="card fade-in stagger-4">
+                    <h2 class="card-title">Impact & Reach</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years of Literary Work</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Poetry Evenings</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Published Articles</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Readers Touched</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recognition & Achievements -->
+                <section class="card fade-in stagger-4">
+                    <h2 class="card-title">Recognition</h2>
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🏆</div>
+                        <div class="achievement-content">
+                            <h4>Literary Excellence Award</h4>
+                            <p>Recognition for outstanding contributions to contemporary Arabic literature and poetry</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-icon">📖</div>
+                        <div class="achievement-content">
+                            <h4>Cultural Heritage Advocate</h4>
+                            <p>Celebrated for bridging traditional and modern literary expressions in the UAE</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🎤</div>
+                        <div class="achievement-content">
+                            <h4>Inspiring Speaker</h4>
+                            <p>Renowned for thought-provoking lectures that resonate with diverse audiences</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🌟</div>
+                        <div class="achievement-content">
+                            <h4>Community Impact</h4>
+                            <p>Significant influence on local literary community and cultural dialogue</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements that should fade in
+            document.querySelectorAll('.card, .header').forEach(el => {
+                observer.observe(el);
             });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
+
+            // Add smooth hover effects
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+            });
+
+            // Profile image click interaction
+            document.querySelector('.profile-image').addEventListener('click', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 300);
+            });
+
+            // Add subtle text animation for quote
+            const quote = document.querySelector('.quote');
+            if (quote) {
+                quote.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.background = 'linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(196, 155, 97, 0.2))';
+                });
+                
+                quote.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.background = 'linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 155, 97, 0.1))';
+                });
+            }
         });
-
-        const revealElements = document.querySelectorAll('.reveal');
-        revealElements.forEach((el) => observer.observe(el));
     </script>
-
 </body>
 </html>
